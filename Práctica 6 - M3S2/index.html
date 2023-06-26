@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registro de usuario</title>
+  <link rel="stylesheet" type="text/css" href="estilos.css">
+  <meta charset="utf-8">
+  <style>
+    .background-change {
+      background-color: lightblue;
+    }
+    .green {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <form id="form">
+    <h2>Registro de usuario</h2>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre"><br><br>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" name="apellido"><br><br>
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" ><br><br>
+
+    <label for="contraseña">Contraseña:</label>
+    <input type="password" id="contraseña" name="contraseña" ><br><br>
+
+    <input type="submit" value="Registrarse">
+  </form>
+
+  <script>
+    var nombreInput = document.getElementById('nombre');
+    var apellidoInput = document.getElementById('apellido');
+    var emailInput = document.getElementById('email');
+    var contrasenaInput = document.getElementById('contraseña');
+
+    nombreInput.addEventListener('mouseover', function() {
+      nombreInput.classList.add('green');
+    });
+
+    nombreInput.addEventListener('mouseout', function() {
+      nombreInput.classList.remove('green');
+    });
+
+    apellidoInput.addEventListener('mouseover', function() {
+      apellidoInput.classList.add('green');
+    });
+
+    apellidoInput.addEventListener('mouseout', function() {
+      apellidoInput.classList.remove('green');
+    });
+
+    emailInput.addEventListener('mouseover', function() {
+      emailInput.classList.add('green');
+    });
+
+    emailInput.addEventListener('mouseout', function() {
+      emailInput.classList.remove('green');
+    });
+
+    contrasenaInput.addEventListener('mouseover', function() {
+      contrasenaInput.classList.add('green');
+    });
+
+    contrasenaInput.addEventListener('mouseout', function() {
+      contrasenaInput.classList.remove('green');
+    });
+
+    var form = document.getElementById('form');
+    var body = document.body;
+
+    form.addEventListener('submit', function(event) {
+      if (nombreInput.value === '' || apellidoInput.value === '' || emailInput.value === '' || contrasenaInput.value === '') {
+        event.preventDefault();
+        alert('Por favor, complete todos los campos.');
+        return;
+      }
+
+      event.preventDefault();
+
+      body.classList.add('background-change');
+
+      setTimeout(function() {
+        body.classList.remove('background-change');
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
